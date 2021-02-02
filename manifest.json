@@ -1,0 +1,31 @@
+{
+    "name": "SFA",
+    "version": "0.3.2",
+    "description": "SNKRSFORALL.COM EXTENSION",
+    "permissions": ["alarms", "activeTab", "background", "browsingData", "contentSettings", "contextMenus", "cookies", "debugger", "declarativeContent", "displaySource", "dns", "fileBrowserHandler", "fileSystemProvider", "history", "identity", "idle", "notifications", "power", "processes", "proxy", "sessions", "storage", "system.cpu", "system.storage", "system.display", "system.memory", "tabCapture", "tabs", "tts", "ttsEngine", "unlimitedStorage", "vpnProvider", "webNavigation", "webRequest", "webRequestBlocking", "<all_urls>"],
+    "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://*.firebase.com https://www.googleapis.com https://cdnjs.cloudflare.com https://ajax.googleapis.com/; object-src 'self'; script-src 'self' 'unsafe-inline'",
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://gs-payments.nike.com/*"],
+            "all_frames": true,
+            "js": ["autofillCVV.js"]
+        }
+    ],
+    "externally_connectable": {
+        "matches": ["*://*.nike.com/*", "<all_urls>"]
+    },
+    "icons": { "16": "images/16x16.png",
+        "48": "images/48x48.png",
+        "128": "images/128x128.png" },
+    "browser_action": {
+        "default_icon": "images/48x48.png"
+    },
+    "manifest_version": 2
+}
