@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> SFA </title>
+        <meta charset="utf-8">  
+        <link rel="icon" href="images/16x16.png" type="image/png" sizes="16x16">
+    </head>
+    <body>
+        <img src="images/logo.svg" width="200px">
+        <h1>SFA Extension v0.3.2</h1>
+        <h2 style="color:red;" id="notice"></h2>
+        <div class="userArea">
+            <div class="loginArea" style="display:none;">
+                <p>Login with your snkrsforall.com account.</p>
+                <label>Email: </label>
+                <input type="email" required>
+                <label>Password: </label>
+                <input type="password" required> 
+                <button class="login-btn-auth" type="button">LOGIN</button>
+            </div>
+            <div class="loggedInArea" style="display:none;">
+                <p> Logged in user: <span></span></p>
+                <div id="matched-nike-profile">
+                    <h3>Connected Nike Account</h3>
+                    <p>Email: <span id="matched-nike-email">No profile matched, login to Nike.com and click "SYNC NIKE ACCOUNT" to match.</span></p>
+                    <p>CVV: <span id="matched-nike-cvv"></span></p>
+                    <p>Address Found: <span id="matched-address"></span></p>
+                    <p>Default Card Found: <span id="matched-card"></span></p>
+                    <p>Phone Verified: <span id="matched-phone"></span></p>
+                    <p id="matching-instructions" style="color:red;"></p>
+                    <p id="matching-check-time" style="color:red;"></p>
+                    <button class="match-account" type="button">SYNC NIKE ACCOUNT</button> 
+                </div>
+
+                <div id="upcoming-cop">
+                    <h3>Your Upcoming Cops</h3>
+                    <ul id="upcoming-cop-list">
+                    </ul>
+                </div>
+                <button class="logout-btn-auth" type="button">LOGOUT</button>
+
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-functions.js"></script>
+
+    <!-- ***************************************************************************************
+        * TODO(DEVELOPER): Make sure you are importing the latest version of the Firebase JS. *
+        *************************************************************************************** -->
+    <script src="app.js"></script>
+    <style>
+        button {
+            background-color: red;
+            font-weight: bold;
+            border: 0;
+            padding: 12px 20px;
+            border-radius: 0;
+            color: white;
+            cursor: pointer;
+        }
+
+        html {
+            min-height:100%;
+        }
+        body {
+            margin: 40px 80px;
+            background-image: url("images/bg.jpg");
+            min-height:100%;
+        }
+    </style>
+</html>
